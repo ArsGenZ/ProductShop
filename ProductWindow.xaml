@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="ProductShop.ProductWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FontFamily="Arial Black" Background="White" FontSize="20">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="HeaderTitle" Text="Добавление продукта" FontSize="25" 
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                <TextBlock Text="Название:"/>
+                <TextBox x:Name="TxtName" Background="WhiteSmoke" Margin="0,5,0,15"/>
+
+                <TextBlock Text="Цена:"/>
+                <TextBox x:Name="TxtPrice" Background="WhiteSmoke" Margin="0,5,0,15"/>
+
+                <TextBlock Text="Количество:"/>
+                <TextBox x:Name="TxtCount" Background="WhiteSmoke" Margin="0,5,0,15"/>
+
+                <TextBlock Text="Описание:"/>
+                <TextBox x:Name="TxtDescription" Background="WhiteSmoke" Height="80" TextWrapping="Wrap" Margin="0,5,0,15"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Изображение:"/>
+                <TextBox x:Name="TxtImage" Background="WhiteSmoke" Margin="0,5,0,10" IsReadOnly="True"/>
+                <Border BorderBrush="Gray" BorderThickness="1" Height="200" Margin="0,0,0,10">
+                    <Image x:Name="PreviewImage" Stretch="Uniform" ImageFailed="PreviewImage_ImageFailed"/>
+                </Border>
+                <Button x:Name="BrowseBtn" Content="Выбрать файл" Click="BrowseImage_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Отмена" Padding="20,5" Margin="0,0,10,0" Click="CancelButton_Click"/>
+            <Button Content="Сохранить" Padding="20,5" Click="SaveButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
